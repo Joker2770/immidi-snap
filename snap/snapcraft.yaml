@@ -90,7 +90,7 @@ apps:
 parts:
   immidi:
     plugin: cmake
-    configflags:
+    cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DENABLE_TESTING=OFF"
