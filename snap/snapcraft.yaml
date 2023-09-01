@@ -108,10 +108,12 @@ parts:
       - libgmp-dev
       - libglew-dev
       - libglfw3-dev
+      - libncurses-dev
     stage-packages:
       - libgmp10
       - libglew2.1
       - libglfw3
       - libglfw3-wayland
+      - libncurses6
 
 
