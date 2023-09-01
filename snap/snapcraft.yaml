@@ -70,6 +70,8 @@ apps:
       - desktop
       - desktop-legacy
       - audio-playback
+      - pulseaudio
+      - alsa
       - wayland
       - unity7
       - x11
@@ -88,7 +90,19 @@ apps:
       # QT_QPA_PLATFORMTHEME: gtk3
 
 parts:
+  alsa-mixin:
+    plugin: dump
+    source: https://github.com/diddlesnaps/snapcraft-alsa.git
+    source-subdir: snapcraft-assets
+    build-packages:
+      - libasound2-dev
+    stage-packages:
+      - libasound2
+      - libasound2-plugins
+      - yad
+
   immidi:
+    after: [alsa-mixin]
     plugin: cmake
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
@@ -110,6 +124,7 @@ parts:
       - libncurses-dev
       - libsdl2-dev
       - libsdl2-image-dev
+      - libfreetype-dev
     stage-packages:
       - libgmp10
       - libglew2.1
