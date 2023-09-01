@@ -23,13 +23,13 @@ description: |
 
   **For playing midi successfully, the soundfont is necessary. **
   
-     ~/snap/.config/MIDI Player/soundfont/
+     ~/snap/immidi/current/.config/MIDI Player/soundfont/
 
   _More details: https://github.com/Joker2770/immidi-snap.git_
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core18
+base: core20
 license: 'MIT'
 
 plugs:
