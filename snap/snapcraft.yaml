@@ -109,11 +109,15 @@ parts:
       - libglew-dev
       - libglfw3-dev
       - libncurses-dev
+      - libsdl2-dev
+      - libsdl2-image-dev
     stage-packages:
       - libgmp10
       - libglew2.1
       - libglfw3
       - libglfw3-wayland
       - libncurses6
+      - libsdl2-2.0-0
+      - libsdl2-image-2.0-0
 
 
