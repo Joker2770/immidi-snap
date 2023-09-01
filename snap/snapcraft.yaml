@@ -111,8 +111,6 @@ parts:
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
       - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DENABLE_TESTING=OFF"
-      - "-DBUILD_TESTING=OFF"
     source: https://github.com/Joker2770/libmidi.git
     source-type: git
     source-branch: main
@@ -133,6 +131,7 @@ parts:
     stage-packages:
       - libgmp10
       - libglew2.1
+      - glewlwyd
       - libglfw3
       - libglfw3-wayland
       - libncurses6
