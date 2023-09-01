@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0.1
+Encoding=UTF-8
+Name=immidi
+Comment=midi player base on timidity and imgui
+Exec=immidi
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Sequencer;
+MimeType=audio/midi;audio/x-mod;
+Keywords=midi;sequencer
+Icon=${SNAP}/meta/gui/immidi.png

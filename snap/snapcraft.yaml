@@ -1,0 +1,116 @@
+#    MIDI player base on timidity and imgui, support soundfont(SF2) and software MIDI keyboard.
+#    Copyright (C) 2023  Jintao Yang <yjt950840@outlook.com>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+name: immidi # you probably want to 'snapcraft register <name>'
+version: '1.0.1' # just for humans, typically '1.2+git' or '1.3.2'
+summary: MIDI player base on timidity and imgui. # 79 char long summary
+description: |
+  MIDI player base on timidity and imgui, support soundfont(SF2) and software MIDI keyboard.
+
+  **For playing midi successfully, the soundfont is necessary. **
+  
+     ~/snap/.config/MIDI Player/soundfont/
+
+  _More details: https://github.com/Joker2770/immidi-snap.git_
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+base: core18
+license: 'MIT'
+
+plugs:
+  # Support for common GTK themes
+  # https://forum.snapcraft.io/t/how-to-use-the-system-gtk-theme-via-the-gtk-common-themes-snap/6235
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
+
+layout:
+  /etc/fonts:
+    bind: $SNAP/etc/fonts
+  /etc/pulse:
+    bind: $SNAP/etc/pulse
+  /usr/local/share:
+    bind: $SNAP/usr/local/share
+  /usr/share/X11:
+    bind: $SNAP/usr/share/X11
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules
+
+apps:
+  immidi:
+    command: desktop-launch $SNAP/usr/local/bin/immidi
+    command-chain:
+      - bin/desktop-launch
+    plugs:
+      - home
+      - desktop
+      - desktop-legacy
+      - audio-playback
+      - wayland
+      - unity7
+      - x11
+      - opengl
+      - removable-media
+      - gsettings
+      - process-control
+      - hardware-observe
+      - mount-observe
+      - system-observe
+      - system-trace
+    environment:
+      DISABLE_WAYLAND: 1
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      # Use GTK3 cursor theme, icon theme and open/save file dialogs.
+      # QT_QPA_PLATFORMTHEME: gtk3
+
+parts:
+  immidi:
+    plugin: cmake
+    configflags:
+      - "-DCMAKE_INSTALL_PREFIX=/usr/local"
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DENABLE_TESTING=OFF"
+      - "-DBUILD_TESTING=OFF"
+    source: https://github.com/opencodewin/libmidi.git
+    source-type: git
+    source-branch: main
+    source-depth: 1
+    build-packages:
+      - gcc
+      - g++
+      - make
+      - glslang-dev
+      - libgmp-dev
+      - libglew-dev
+      - libglfw3-dev
+    stage-packages:
+      - libgmp10
+      - libglew2.1
+      - libglfw3
+      - libglfw3-wayland
+
+
