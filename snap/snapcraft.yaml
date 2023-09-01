@@ -95,7 +95,7 @@ parts:
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DENABLE_TESTING=OFF"
       - "-DBUILD_TESTING=OFF"
-    source: git@github.com:Joker2770/libmidi.git
+    source: https://github.com/opencodewin/libmidi.git
     source-type: git
     source-branch: main
     source-depth: 1
