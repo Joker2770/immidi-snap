@@ -99,7 +99,6 @@ parts:
     source-type: git
     source-branch: main
     source-depth: 1
-    source-submodules: []
     build-packages:
       - gcc
       - g++
