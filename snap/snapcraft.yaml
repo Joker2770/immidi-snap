@@ -121,6 +121,7 @@ parts:
       - gcc
       - g++
       - make
+      - spirv-tools
       - glslang-dev
       - libgmp-dev
       - libglew-dev
