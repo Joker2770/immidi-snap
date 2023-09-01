@@ -49,6 +49,10 @@ plugs:
     default-provider: gtk-common-themes
 
 layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
+  /usr/share/alsa:
+    bind: $SNAP/usr/share/alsa
   /etc/fonts:
     bind: $SNAP/etc/fonts
   /etc/pulse:
