@@ -202,10 +202,11 @@ parts:
       cmake ${SNAPCRAFT_PART_BUILD}/../src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
+      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/lib
       cp ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       cp ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       cp ./sample ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       cp ./bin2c ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp ./lib*.so* ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp ./lib*.so* ${SNAPCRAFT_PART_INSTALL}/usr/local/lib/
 
 
