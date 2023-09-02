@@ -73,6 +73,7 @@ apps:
     command: usr/local/bin/immidi
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
+      DISABLE_WAYLAND: 1
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome]
     plugs:
