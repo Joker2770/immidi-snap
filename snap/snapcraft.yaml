@@ -193,10 +193,10 @@ parts:
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/lib
-      cp -P ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp -P ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp -P ./sample ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp -P ./bin2c ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -r --preserve=mode ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -r --preserve=mode ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -r --preserve=mode ./sample ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -r --preserve=mode ./bin2c ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       cp -P ./lib*.so* ${SNAPCRAFT_PART_INSTALL}/usr/local/lib/
 
 
