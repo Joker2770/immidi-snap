@@ -87,11 +87,23 @@ apps:
       - mount-observe
       - system-observe
       - system-trace
-    environment:
-      DISABLE_WAYLAND: 1
-      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
-      # Use GTK3 cursor theme, icon theme and open/save file dialogs.
-      # QT_QPA_PLATFORMTHEME: gtk3
+  timidity:
+    command: desktop-launch $SNAP/usr/local/bin/timidity
+    command-chain:
+      - bin/desktop-launch
+    plugs:
+      - home
+      - desktop
+      - desktop-legacy
+      - audio-playback
+      - pulseaudio
+      - alsa
+      - removable-media
+      - process-control
+      - hardware-observe
+      - mount-observe
+      - system-observe
+      - system-trace
 
 parts:
   alsa-mixin:
@@ -144,7 +156,11 @@ parts:
       - libsdl2-image-2.0-0
       - libvulkan1
     override-build: |
-      snapcraftctl build
+      cmake ${SNAPCRAFT_PART_BUILD}/immidi/src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
+      make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
+      cp ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp ./lib*.so* ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
 
 
