@@ -111,6 +111,7 @@ parts:
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
       - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DIMGUI_VULKAN_SHADER=OFF"
     source: https://github.com/Joker2770/libmidi.git
     source-type: git
     source-branch: main
