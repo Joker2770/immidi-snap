@@ -65,6 +65,8 @@ layout:
     bind: $SNAP/usr/local/share
   /usr/share/X11:
     bind: $SNAP/usr/share/X11
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/dri:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/dri
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules
 
@@ -73,7 +75,8 @@ apps:
     command: usr/local/bin/immidi
     environment:
       DISABLE_WAYLAND: 1
-      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
+      LIBGL_DRIVERS_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/dri"
+      LD_LIBRARY_PATH: "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib"
     # extensions: [gnome]
     plugs:
       - home
