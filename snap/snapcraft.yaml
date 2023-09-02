@@ -71,10 +71,9 @@ layout:
 apps:
   immidi:
     command: usr/local/bin/immidi
-    command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       DISABLE_WAYLAND: 1
-      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
+      LD_LIBRARY_PATH: $SNAP/lib:$SNAP/usr/lib:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome]
     plugs:
       - home
@@ -96,9 +95,8 @@ apps:
       - system-trace
   timidity:
     command: usr/local/bin/timidity
-    command-chain: ["snap/command-chain/alsa-launch"]
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
+      LD_LIBRARY_PATH: $SNAP/lib:$SNAP/usr/lib:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome]
     plugs:
       - home
@@ -115,9 +113,8 @@ apps:
       - system-trace
   sample:
     command: usr/local/bin/sample
-    command-chain: ["snap/command-chain/alsa-launch"]
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
+      LD_LIBRARY_PATH: $SNAP/lib:$SNAP/usr/lib:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome]
     plugs:
       - home
@@ -134,9 +131,8 @@ apps:
       - system-trace
   bin2c:
     command: usr/local/bin/bin2c
-    command-chain: ["snap/command-chain/alsa-launch"]
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
+      LD_LIBRARY_PATH: $SNAP/lib:$SNAP/usr/lib:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome]
     plugs:
       - home
@@ -153,19 +149,7 @@ apps:
       - system-trace
 
 parts:
-  alsa-mixin:
-    plugin: dump
-    source: https://github.com/diddlesnaps/snapcraft-alsa.git
-    source-subdir: snapcraft-assets
-    build-packages:
-      - libasound2-dev
-    stage-packages:
-      - libasound2
-      - libasound2-plugins
-      - yad
-
   immidi:
-    after: [alsa-mixin]
     plugin: cmake
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
