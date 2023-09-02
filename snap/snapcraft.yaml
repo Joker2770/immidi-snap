@@ -93,6 +93,15 @@ apps:
       - mount-observe
       - system-observe
       - system-trace
+      - qualcomm-ipc-router
+      - firewall-control
+      - netlink-connector
+      - netlink-audit
+      - network
+      - network-bind
+      - network-manager
+      - network-manager-observe
+      - network-control
   timidity:
     command: usr/local/bin/timidity
     environment:
@@ -129,6 +138,15 @@ apps:
       - mount-observe
       - system-observe
       - system-trace
+      - qualcomm-ipc-router
+      - firewall-control
+      - netlink-connector
+      - netlink-audit
+      - network
+      - network-bind
+      - network-manager
+      - network-manager-observe
+      - network-control
   bin2c:
     command: usr/local/bin/bin2c
     environment:
@@ -147,6 +165,15 @@ apps:
       - mount-observe
       - system-observe
       - system-trace
+      - qualcomm-ipc-router
+      - firewall-control
+      - netlink-connector
+      - netlink-audit
+      - network
+      - network-bind
+      - network-manager
+      - network-manager-observe
+      - network-control
 
 parts:
   immidi:
