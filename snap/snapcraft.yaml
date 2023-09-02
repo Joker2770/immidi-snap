@@ -31,10 +31,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core22
 license: 'MIT'
-architectures:
-  - build-on: amd64
-  - build-on: armhf
-  - build-on: arm64
+# architectures:
+  # - build-on: amd64
+  # - build-on: armhf
+  # - build-on: arm64
 
 plugs:
   # Support for common GTK themes
@@ -74,7 +74,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - home
       - desktop
@@ -98,7 +98,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - home
       - desktop
@@ -117,7 +117,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - home
       - desktop
@@ -136,7 +136,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - home
       - desktop
@@ -209,10 +209,10 @@ parts:
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/lib
-      cp ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp ./sample ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      cp ./bin2c ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -P ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -P ./timidity ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -P ./sample ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp -P ./bin2c ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       cp -P ./lib*.so* ${SNAPCRAFT_PART_INSTALL}/usr/local/lib/
 
 
