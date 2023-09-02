@@ -145,5 +145,6 @@ parts:
       - libvulkan1
     override-build: |
       snapcraftctl build
+      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
 
 
