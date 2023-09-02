@@ -199,7 +199,6 @@ parts:
       # - libglu1-mesa
       # - libglew2.1 #core20
       - libglew2.2 #core22
-      - glewlwyd
       - libglfw3
       - libglfw3-wayland
       - libncurses6
