@@ -73,6 +73,7 @@ layout:
 apps:
   immidi:
     command: usr/local/bin/immidi
+    command-chain: ["bin/desktop-launch"]
     environment:
       DISABLE_WAYLAND: 1
       LIBGL_DRIVERS_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/dri"
@@ -179,7 +180,16 @@ apps:
       - network-control
 
 parts:
+  desktop-glib-only:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    plugin: make
+    build-packages:
+      - libglib2.0-dev
+    stage-packages:
+      - libglib2.0-bin
   immidi:
+    after: [desktop-glib-only]
     plugin: cmake
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
@@ -203,14 +213,14 @@ parts:
       # - libsdl2-image-dev
       - libfreetype-dev
       # - libgl1-mesa-dev
-      # - libglu1-mesa-dev
+      - libglu1-mesa-dev
       - libvulkan-dev
       - libimgui-dev
     stage-packages:
       - libgmp10
       - libgl1
       # - libglx-mesa0
-      # - libglu1-mesa
+      - libglu1-mesa
       # - libglew2.1 #core20
       - libglew2.2 #core22
       - libglfw3
