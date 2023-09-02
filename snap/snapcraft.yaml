@@ -91,6 +91,7 @@ apps:
       - process-control
       - hardware-observe
       - mount-observe
+      - system-files
       - system-observe
       - system-trace
   timidity:
@@ -109,6 +110,7 @@ apps:
       - process-control
       - hardware-observe
       - mount-observe
+      - system-files
       - system-observe
       - system-trace
   sample:
@@ -127,6 +129,7 @@ apps:
       - process-control
       - hardware-observe
       - mount-observe
+      - system-files
       - system-observe
       - system-trace
   bin2c:
@@ -145,6 +148,7 @@ apps:
       - process-control
       - hardware-observe
       - mount-observe
+      - system-files
       - system-observe
       - system-trace
 
