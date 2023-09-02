@@ -66,7 +66,7 @@ layout:
 
 apps:
   immidi:
-    command: $SNAP/usr/local/bin/immidi
+    command: usr/local/bin/immidi
     command-chain:
       - bin/desktop-launch
     plugs:
@@ -88,7 +88,7 @@ apps:
       - system-observe
       - system-trace
   timidity:
-    command: $SNAP/usr/local/bin/timidity
+    command: usr/local/bin/timidity
     plugs:
       - home
       - desktop
@@ -103,7 +103,7 @@ apps:
       - system-observe
       - system-trace
   sample:
-    command: $SNAP/usr/local/bin/sample
+    command: usr/local/bin/sample
     plugs:
       - home
       - desktop
@@ -118,7 +118,7 @@ apps:
       - system-observe
       - system-trace
   bin2c:
-    command: $SNAP/usr/local/bin/bin2c
+    command: usr/local/bin/bin2c
     plugs:
       - home
       - desktop
