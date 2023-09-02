@@ -31,6 +31,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 license: 'MIT'
+architectures:
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
 
 plugs:
   # Support for common GTK themes
@@ -67,7 +71,7 @@ layout:
 apps:
   immidi:
     command: usr/local/bin/immidi
-    command-chain: ["snap/command-chain/alsa-launch", "snap/command-chain/desktop-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome-3-38]
@@ -148,7 +152,17 @@ apps:
       - system-trace
 
 parts:
+  desktop-glib-only:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    plugin: make
+    build-packages:
+      - libglib2.0-dev
+    stage-packages:
+      - libglib2.0-bin
+
   alsa-mixin:
+    after: [desktop-glib-only]
     plugin: dump
     source: https://github.com/diddlesnaps/snapcraft-alsa.git
     source-subdir: snapcraft-assets
@@ -160,7 +174,7 @@ parts:
       - yad
 
   immidi:
-    after: [alsa-mixin]
+    after: [alsa-mixin, desktop-glib-only]
     plugin: cmake
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr/local"
