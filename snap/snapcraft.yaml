@@ -29,7 +29,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core20
+base: core22
 license: 'MIT'
 architectures:
   - build-on: amd64
@@ -74,7 +74,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    # extensions: [gnome-3-38]
+    extensions: [gnome-3-38]
     plugs:
       - home
       - desktop
@@ -98,7 +98,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    # extensions: [gnome-3-38]
+    extensions: [gnome-3-38]
     plugs:
       - home
       - desktop
@@ -117,7 +117,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    # extensions: [gnome-3-38]
+    extensions: [gnome-3-38]
     plugs:
       - home
       - desktop
@@ -136,7 +136,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
-    # extensions: [gnome-3-38]
+    extensions: [gnome-3-38]
     plugs:
       - home
       - desktop
@@ -190,7 +190,7 @@ parts:
       - libgl1-mesa-dev
       - libglu1-mesa-dev
       - libvulkan-dev
-      # - libimgui-dev
+      - libimgui-dev
     stage-packages:
       - libgmp10
       - libgl1
