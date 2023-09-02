@@ -31,6 +31,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 license: 'MIT'
+architectures:
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
 
 plugs:
   # Support for common GTK themes
