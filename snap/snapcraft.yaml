@@ -128,8 +128,11 @@ parts:
       - libsdl2-dev
       - libsdl2-image-dev
       - libfreetype-dev
+      - libgl1-mesa-dev
     stage-packages:
       - libgmp10
+      - libgl1
+      - libglx-mesa0
       - libglew2.1
       - glewlwyd
       - libglfw3
