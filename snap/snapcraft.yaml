@@ -186,17 +186,17 @@ parts:
       - libglfw3-dev
       - libncurses-dev
       - libsdl2-dev
-      - libsdl2-image-dev
+      # - libsdl2-image-dev
       - libfreetype-dev
-      - libgl1-mesa-dev
-      - libglu1-mesa-dev
+      # - libgl1-mesa-dev
+      # - libglu1-mesa-dev
       - libvulkan-dev
       - libimgui-dev
     stage-packages:
       - libgmp10
       - libgl1
-      - libglx-mesa0
-      - libglu1-mesa
+      # - libglx-mesa0
+      # - libglu1-mesa
       # - libglew2.1 #core20
       - libglew2.2 #core22
       - glewlwyd
@@ -204,8 +204,8 @@ parts:
       - libglfw3-wayland
       - libncurses6
       - libsdl2-2.0-0
-      - libsdl2-image-2.0-0
-      - libvulkan1
+      # - libsdl2-image-2.0-0
+      # - libvulkan1
     override-build: |
       cmake ${SNAPCRAFT_PART_BUILD}/../src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
       make -j $(nproc)
