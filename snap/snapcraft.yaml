@@ -67,7 +67,7 @@ layout:
 apps:
   immidi:
     command: usr/local/bin/immidi
-    command-chain: ["snap/command-chain/alsa-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "snap/command-chain/desktop-launch"]
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/local/lib
     # extensions: [gnome-3-38]
