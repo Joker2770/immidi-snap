@@ -156,7 +156,7 @@ parts:
       - libsdl2-image-2.0-0
       - libvulkan1
     override-build: |
-      cmake ${SNAPCRAFT_PART_BUILD}/immidi/src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
+      cmake ${SNAPCRAFT_PART_BUILD}/../src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       cp ./immidi ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
