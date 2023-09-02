@@ -129,6 +129,7 @@ parts:
       - libsdl2-image-dev
       - libfreetype-dev
       - libgl1-mesa-dev
+      - libvulkan-dev
     stage-packages:
       - libgmp10
       - libgl1
@@ -140,5 +141,6 @@ parts:
       - libncurses6
       - libsdl2-2.0-0
       - libsdl2-image-2.0-0
+      - libvulkan1
 
 
