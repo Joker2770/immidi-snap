@@ -21,7 +21,7 @@ summary: MIDI player base on timidity and imgui. # 79 char long summary
 description: |
   MIDI player base on timidity and imgui, support soundfont(SF2) and software MIDI keyboard.
 
-  **For playing midi successfully, the soundfont is necessary. **
+  **If you have customized soundfont, could copy them into the path as follow. **
   
      ~/snap/immidi/current/.config/MIDI Player/soundfont/
 
