@@ -223,6 +223,7 @@ parts:
       # - libglew2.1 #core20
       - libglew2.2 #core22
       - libglfw3
+      - libgomp1
       - libncurses6
       - libsdl2-2.0-0
       # - libsdl2-image-2.0-0
