@@ -216,6 +216,7 @@ parts:
       - libvulkan-dev
       - libimgui-dev
       - libglm-dev
+      - libssl-dev
     stage-packages:
       - libgmp10
       - libgl1
