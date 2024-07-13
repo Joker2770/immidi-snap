@@ -31,10 +31,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core22
 license: 'MIT'
-architectures:
-  - build-on: amd64
-  - build-on: armhf
-  - build-on: arm64
+# architectures:
+  # - build-on: amd64
+  # - build-on: armhf
+  # - build-on: arm64
 
 plugs:
   # Support for common GTK themes
@@ -233,7 +233,7 @@ parts:
       # - libsdl2-image-2.0-0
       # - libvulkan1
     override-build: |
-      cmake ${SNAPCRAFT_PART_BUILD}/../src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF
+      cmake ${SNAPCRAFT_PART_BUILD}/../src/ -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release -DIMGUI_VULKAN_SHADER=OFF -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/lib
