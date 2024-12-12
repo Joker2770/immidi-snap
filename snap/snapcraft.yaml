@@ -219,6 +219,8 @@ parts:
       - libimgui-dev
       - libglm-dev
       - libssl-dev
+      - libomp-dev
+      - libtiff-dev
     stage-packages:
       - libgmp10
       - libgl1
